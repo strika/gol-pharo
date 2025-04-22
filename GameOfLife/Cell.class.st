@@ -14,6 +14,11 @@ Cell >> initialize [
 ]
 
 { #category : 'testing' }
+Cell >> isAlive [
+	^ alive
+]
+
+{ #category : 'testing' }
 Cell >> isDead [
 	^ (alive not)
 ]
