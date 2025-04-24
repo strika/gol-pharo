@@ -10,9 +10,14 @@ Class {
 	#package : 'GameOfLife'
 }
 
+{ #category : 'accessing' }
+Cell >> alive: aBoolean [
+	alive := aBoolean
+]
+
 { #category : 'algorithm' }
 Cell >> calculateNextState [
-	aliveNext := neighbourhood aliveCells = 3.
+	aliveNext := #(2 3) includes: (neighbourhood aliveCells).
 ]
 
 { #category : 'initialization' }
