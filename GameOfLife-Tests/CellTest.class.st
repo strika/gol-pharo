@@ -11,6 +11,7 @@ Class {
 
 { #category : 'running' }
 CellTest >> setUp [ 
+	super setUp.
 	neighbourhood := NeighbourhoodStub new.
 	cell := Cell new neighbourhood: neighbourhood.
   

@@ -17,7 +17,9 @@ Cell >> alive: aBoolean [
 
 { #category : 'algorithm' }
 Cell >> calculateNextState [
-	aliveNext := #(2 3) includes: (neighbourhood aliveCells).
+	aliveNext := self isAlive 
+		ifTrue: [#(2 3) includes: (neighbourhood aliveCells)]
+		ifFalse: [neighbourhood aliveCells == 3].
 ]
 
 { #category : 'initialization' }
