@@ -13,7 +13,7 @@ Class {
 CellTest >> setUp [ 
 	super setUp.
 	neighbourhood := NeighbourhoodStub new.
-	cell := Cell new neighbourhood: neighbourhood.
+	cell := Cell withNeighbourhood: neighbourhood.
   
 ]
 

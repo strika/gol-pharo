@@ -10,6 +10,15 @@ Class {
 	#package : 'GameOfLife'
 }
 
+{ #category : 'as yet unclassified' }
+Cell class >> withNeighbourhood: neighbourhood [
+	"Builds a cell with given neighbourhood."
+
+	^ self new
+		  neighbourhood: neighbourhood;
+		  yourself
+]
+
 { #category : 'accessing' }
 Cell >> alive: aBoolean [
 	alive := aBoolean
