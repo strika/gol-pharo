@@ -1,3 +1,6 @@
+"
+Implements a grid of cells.
+"
 Class {
 	#name : 'CellWorld',
 	#superclass : 'Object',
@@ -23,6 +26,11 @@ CellWorld >> build [
 { #category : 'accessing' }
 CellWorld >> columns: anInteger [
 	columns := anInteger.
+]
+
+{ #category : 'accessing' }
+CellWorld >> nextState [
+	cells do: [ :cell | cell calculateNextState; moveToNextState ]
 ]
 
 { #category : 'accessing' }

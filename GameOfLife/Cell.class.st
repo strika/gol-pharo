@@ -1,3 +1,6 @@
+"
+Implements a single cell in a 2D grid.
+"
 Class {
 	#name : 'Cell',
 	#superclass : 'Object',

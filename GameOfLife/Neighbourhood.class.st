@@ -1,3 +1,6 @@
+"
+Calculates and returns the state of neighbourhood around a cell.
+"
 Class {
 	#name : 'Neighbourhood',
 	#superclass : 'Object',
