@@ -13,10 +13,11 @@ Class {
 { #category : 'building' }
 CellWorld >> build [
 	"Instantiates cells as matrix with configured number of rows and columns."
+	
 	cells := Array2D 
 		rows: rows 
 		columns: columns
-		tabulate: [ :i :j | Cell new ]
+		tabulate: [ :i :j | Cell withNeighbourhood: (Neighbourhood new cellWorld: self; row: i; column: j; yourself) ]
 ]
 
 { #category : 'accessing' }
