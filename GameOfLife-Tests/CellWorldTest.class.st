@@ -22,6 +22,14 @@ CellWorldTest >> testAccessingCell [
 ]
 
 { #category : 'tests' }
+CellWorldTest >> testAccessingCellOutOfBounds [
+	self assert: (world x: 0 y: 1) isDead.
+	self assert: (world x: 11 y: 1) isDead.
+	self assert: (world x: 1 y: 0) isDead.
+	self assert: (world x: 1 y: 11) isDead.
+]
+
+{ #category : 'tests' }
 CellWorldTest >> testNextState [
 	(world x: 1 y: 1) alive: true.
 	(world x: 2 y: 1) alive: true.

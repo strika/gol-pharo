@@ -7,7 +7,8 @@ Class {
 	#instVars : [
 		'cells',
 		'rows',
-		'columns'
+		'columns',
+		'deadCell'
 	],
 	#category : 'GameOfLife',
 	#package : 'GameOfLife'
@@ -28,6 +29,11 @@ CellWorld >> columns: anInteger [
 	columns := anInteger.
 ]
 
+{ #category : 'initialization' }
+CellWorld >> initialize [ 
+	deadCell := Cell new
+]
+
 { #category : 'accessing' }
 CellWorld >> nextState [
 	cells do: [ :cell | cell calculateNextState; moveToNextState ]
@@ -40,6 +46,8 @@ CellWorld >> rows: anInteger [
 
 { #category : 'instance creation' }
 CellWorld >> x: column y: row [
-	"Returns the cell at given row and column."
+	"Returns the cell at given row and column. If coordinates are out of bounds, it returns a dead cell."
+	((column < 1) or: [ (column > columns) or: [ (row < 1 ) or: [ row > rows ] ] ]) ifTrue: [ ^ deadCell ].
+	
 	^ cells at: row at: column
 ]
