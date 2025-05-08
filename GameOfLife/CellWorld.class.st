@@ -25,6 +25,11 @@ CellWorld >> build [
 ]
 
 { #category : 'accessing' }
+CellWorld >> columns [
+	^ columns
+]
+
+{ #category : 'accessing' }
 CellWorld >> columns: anInteger [
 	columns := anInteger.
 ]
@@ -37,6 +42,11 @@ CellWorld >> initialize [
 { #category : 'accessing' }
 CellWorld >> nextState [
 	cells do: [ :cell | cell calculateNextState; moveToNextState ]
+]
+
+{ #category : 'accessing' }
+CellWorld >> rows [
+	^ rows
 ]
 
 { #category : 'accessing' }
