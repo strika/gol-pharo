@@ -45,6 +45,11 @@ CellWorld >> nextState [
 ]
 
 { #category : 'accessing' }
+CellWorld >> randomize [
+	cells do: [ :cell | cell randomize ].
+]
+
+{ #category : 'accessing' }
 CellWorld >> rows [
 	^ rows
 ]

@@ -50,7 +50,7 @@ CellWorldVisualization >> initializeWith: aCellWorld [
 ]
 
 { #category : 'accessing' }
-CellWorldVisualization >> nextState [
+CellWorldVisualization >> nextState [ 
 	cellWorld nextState.
 	self syncFromModel.
 ]
@@ -58,6 +58,18 @@ CellWorldVisualization >> nextState [
 { #category : 'opening' }
 CellWorldVisualization >> openInWorld [ 
 	container openInWorld.
+]
+
+{ #category : 'as yet unclassified' }
+CellWorldVisualization >> runSimulation [
+	self openInWorld.
+	
+	[ 
+		[ 
+			self nextState.  
+			(Delay forMilliseconds: 200) wait
+		] repeat
+	] fork.
 ]
 
 { #category : 'as yet unclassified' }

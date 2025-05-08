@@ -58,3 +58,8 @@ Cell >> moveToNextState [
 Cell >> neighbourhood: aNeighbourhood [
   neighbourhood := aNeighbourhood 
 ]
+
+{ #category : 'as yet unclassified' }
+Cell >> randomize [
+	self alive: (Random new next < 0.2).
+]
