@@ -21,7 +21,7 @@ Neighbourhood >> aliveCells [
 	
 	(Interval from: (row - 1) to: (row + 1)) do: [ :r |
 		(Interval from: (column - 1) to: (column + 1)) do: [ :c |
-			(((r ~= row) or: [ c ~= column ]) and: [ (cellWorld x: c y: r) isAlive ])
+			(((r ~= row) or: [ c ~= column ]) and: [ (cellWorld row: r column: c) isAlive ])
 			 ifTrue: [ count := count + 1 ] ] ].
 	
 	^ count

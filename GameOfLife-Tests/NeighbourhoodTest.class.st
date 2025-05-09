@@ -14,7 +14,7 @@ NeighbourhoodTest >> setUp [
 	world := CellWorld new rows: 3; columns: 3; build.
 	
 	(Interval from: 1 to: 3) do: [ :r |
-		(Interval from: 1 to: 3) do: [ :c | (world x: c y: r) alive: true ] ].
+		(Interval from: 1 to: 3) do: [ :c | (world row: r column: c) alive: true ] ].
 ]
 
 { #category : 'tests' }

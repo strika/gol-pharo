@@ -49,6 +49,14 @@ CellWorld >> randomize [
 	cells do: [ :cell | cell randomize ].
 ]
 
+{ #category : 'instance creation' }
+CellWorld >> row: row column: column [
+	"Returns the cell at given row and column. If coordinates are out of bounds, it returns a dead cell."
+	((column < 1) or: [ (column > columns) or: [ (row < 1 ) or: [ row > rows ] ] ]) ifTrue: [ ^ deadCell ].
+	
+	^ cells at: row at: column
+]
+
 { #category : 'accessing' }
 CellWorld >> rows [
 	^ rows
@@ -57,12 +65,4 @@ CellWorld >> rows [
 { #category : 'accessing' }
 CellWorld >> rows: anInteger [
 	rows := anInteger.
-]
-
-{ #category : 'instance creation' }
-CellWorld >> x: column y: row [
-	"Returns the cell at given row and column. If coordinates are out of bounds, it returns a dead cell."
-	((column < 1) or: [ (column > columns) or: [ (row < 1 ) or: [ row > rows ] ] ]) ifTrue: [ ^ deadCell ].
-	
-	^ cells at: row at: column
 ]

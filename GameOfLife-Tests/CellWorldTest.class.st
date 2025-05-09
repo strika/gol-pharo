@@ -17,52 +17,54 @@ CellWorldTest >> setUp [
 { #category : 'tests' }
 CellWorldTest >> testAccessingCell [
 	| cell |
-	cell := world x: 1 y: 2.
+	cell := world row: 1 column: 2.
 	self assert: cell isDead.
 ]
 
 { #category : 'tests' }
 CellWorldTest >> testAccessingCellOutOfBounds [
-	self assert: (world x: 0 y: 1) isDead.
-	self assert: (world x: 11 y: 1) isDead.
-	self assert: (world x: 1 y: 0) isDead.
-	self assert: (world x: 1 y: 11) isDead.
+	self assert: (world row: 0 column: 1) isDead.
+	self assert: (world row: 11 column: 1) isDead.
+	self assert: (world row: 1 column: 0) isDead.
+	self assert: (world row: 1 column: 11) isDead.
+	
+
 ]
 
 { #category : 'tests' }
 CellWorldTest >> testNextState [
-	(world x: 1 y: 1) alive: true.
-	(world x: 2 y: 1) alive: true.
-	(world x: 1 y: 2) alive: true.
+	(world row: 1 column: 1) alive: true.
+	(world row: 2 column: 1) alive: true.
+	(world row: 1 column: 2) alive: true.
 
 	world nextState.
 	
-	self assert: (world x: 1 y: 1) isAlive.
-	self assert: (world x: 2 y: 1) isAlive.
-	self assert: (world x: 3 y: 1) isDead.
-	self assert: (world x: 1 y: 2) isAlive.
-	self assert: (world x: 2 y: 2) isAlive.
-	self assert: (world x: 3 y: 2) isAlive.
-	self assert: (world x: 1 y: 3) isDead.
-	self assert: (world x: 2 y: 3) isDead.
-	self assert: (world x: 3 y: 3) isDead.
+	self assert: (world row: 1 column: 1) isAlive.
+	self assert: (world row: 2 column: 1) isAlive.
+	self assert: (world row: 3 column: 1) isDead.
+	self assert: (world row: 1 column: 2) isAlive.
+	self assert: (world row: 2 column: 2) isAlive.
+	self assert: (world row: 3 column: 2) isAlive.
+	self assert: (world row: 1 column: 3) isDead.
+	self assert: (world row: 2 column: 3) isDead.
+	self assert: (world row: 3 column: 3) isDead.
 ]
 
 { #category : 'tests' }
 CellWorldTest >> testNextStateWithBlinker [
-	(world x: 2 y: 1) alive: true.
-	(world x: 2 y: 2) alive: true.
-	(world x: 2 y: 3) alive: true.
+	(world row: 2 column: 1) alive: true.
+	(world row: 2 column: 2) alive: true.
+	(world row: 2 column: 3) alive: true.
 
 	world nextState.
 	
-	self assert: (world x: 1 y: 1) isDead.
-	self assert: (world x: 2 y: 1) isDead.
-	self assert: (world x: 3 y: 1) isDead.
-	self assert: (world x: 1 y: 2) isAlive.
-	self assert: (world x: 2 y: 2) isAlive.
-	self assert: (world x: 3 y: 2) isAlive.
-	self assert: (world x: 1 y: 3) isDead.
-	self assert: (world x: 2 y: 3) isDead.
-	self assert: (world x: 3 y: 3) isDead.
+	self assert: (world row: 1 column: 1) isDead.
+	self assert: (world row: 2 column: 1) isDead.
+	self assert: (world row: 3 column: 1) isDead.
+	self assert: (world row: 1 column: 2) isAlive.
+	self assert: (world row: 2 column: 2) isAlive.
+	self assert: (world row: 3 column: 2) isAlive.
+	self assert: (world row: 1 column: 3) isDead.
+	self assert: (world row: 2 column: 3) isDead.
+	self assert: (world row: 3 column: 3) isDead.
 ]
