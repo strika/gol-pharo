@@ -41,7 +41,9 @@ CellWorld >> initialize [
 
 { #category : 'accessing' }
 CellWorld >> nextState [
-	cells do: [ :cell | cell calculateNextState; moveToNextState ]
+	cells 
+		do: [ :cell | cell calculateNextState ];
+		do: [ :cell | cell moveToNextState ].
 ]
 
 { #category : 'accessing' }

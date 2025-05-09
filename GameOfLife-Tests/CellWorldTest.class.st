@@ -44,7 +44,7 @@ CellWorldTest >> testNextState [
 	self assert: (world row: 3 column: 1) isDead.
 	self assert: (world row: 1 column: 2) isAlive.
 	self assert: (world row: 2 column: 2) isAlive.
-	self assert: (world row: 3 column: 2) isAlive.
+	self assert: (world row: 3 column: 2) isDead.
 	self assert: (world row: 1 column: 3) isDead.
 	self assert: (world row: 2 column: 3) isDead.
 	self assert: (world row: 3 column: 3) isDead.
