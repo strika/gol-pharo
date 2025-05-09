@@ -1,3 +1,6 @@
+"
+Objects of this class are used instead of a real neighbourhood objects in tests.
+"
 Class {
 	#name : 'NeighbourhoodStub',
 	#superclass : 'Object',

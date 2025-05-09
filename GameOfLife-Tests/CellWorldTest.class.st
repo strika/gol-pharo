@@ -39,8 +39,30 @@ CellWorldTest >> testNextState [
 	
 	self assert: (world x: 1 y: 1) isAlive.
 	self assert: (world x: 2 y: 1) isAlive.
+	self assert: (world x: 3 y: 1) isDead.
 	self assert: (world x: 1 y: 2) isAlive.
 	self assert: (world x: 2 y: 2) isAlive.
-	self assert: (world x: 3 y: 1) isDead.
+	self assert: (world x: 3 y: 2) isAlive.
 	self assert: (world x: 1 y: 3) isDead.
+	self assert: (world x: 2 y: 3) isDead.
+	self assert: (world x: 3 y: 3) isDead.
+]
+
+{ #category : 'tests' }
+CellWorldTest >> testNextStateWithBlinker [
+	(world x: 2 y: 1) alive: true.
+	(world x: 2 y: 2) alive: true.
+	(world x: 2 y: 3) alive: true.
+
+	world nextState.
+	
+	self assert: (world x: 1 y: 1) isDead.
+	self assert: (world x: 2 y: 1) isDead.
+	self assert: (world x: 3 y: 1) isDead.
+	self assert: (world x: 1 y: 2) isAlive.
+	self assert: (world x: 2 y: 2) isAlive.
+	self assert: (world x: 3 y: 2) isAlive.
+	self assert: (world x: 1 y: 3) isDead.
+	self assert: (world x: 2 y: 3) isDead.
+	self assert: (world x: 3 y: 3) isDead.
 ]
